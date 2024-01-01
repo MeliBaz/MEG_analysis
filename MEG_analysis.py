@@ -1,4 +1,4 @@
-#Zadatak: Pronaći Furijerovu transformaciju proizvoljnog signala
+#Task: Find the Fourier transform of an arbitrary signal
 import numpy as np
 from scipy.fft import fft, fftfreq
 import matplotlib.pyplot as plt
@@ -7,9 +7,8 @@ sr=600 #Frekvencija uzorkovanja koja mora biti duplo veća od najveće frekvenci
 ts=1.0/sr 
 tmax=240
 t=np.arange(0,tmax,ts)
-#Unos podataka iz datoteke MEG.txt. U datoteci se nalaze podaci koji 
-#prikazuju "magnetizaciju" mozga od vremena, mjerenu na raznim lokacijama odnosno s raznim elektrodama. 
-#Iz Fourierove analize možemo uočiti koje su frekvencije bile najviše zastupljene, odnosno koji moždani talasi (alfa,beta,theta ...)
+#read data from the MEG.txt file.The file contains data that shows the "magnetization" of the brain over time, measured at different locations, or with different electrodes.
+#From Fourier analysis, we can see which frequencies were most represented, or which brain waves (alpha, beta, theta, etc.)
 # su bili najviše zastupljeni.
 f1 = open("MEG.txt", "r")
 brojevi = []
@@ -28,7 +27,7 @@ plt.ylabel("MEG Signal")
 plt.title("MEG signal u zavisnosti od vremena")
 plt.show()
 N=len(brojevi)
-#Koristi se scipy fft funkcija da se razdvoji signal na frekvencije koje ga čine
+#The scipy fft function is used to decompose the signal into its constituent frequencies
 yf = fft(brojevi)
 xf = fftfreq(N, 1 / sr)
 plt.plot(xf, np.abs(yf))
