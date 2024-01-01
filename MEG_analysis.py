@@ -3,7 +3,7 @@ import numpy as np
 from scipy.fft import fft, fftfreq
 import matplotlib.pyplot as plt
  
-sr=600 #Frekvencija uzorkovanja koja mora biti duplo veća od najveće frekvencije 
+sr=600 #The sampling frequency must be twice the highest frequency 
 ts=1.0/sr 
 tmax=240
 t=np.arange(0,tmax,ts)
